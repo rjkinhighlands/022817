@@ -1,0 +1,20 @@
+<h1>{{name}}'s profile</h1>
+
+{{#if logged_in}}
+  <form action="/people/update/{{id}}?_method=PUT" method="POST">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{name}}">
+    </div>
+
+    <input type="submit" value="Update This User">
+  </form>
+{{/if}}
+
+<h2>Tasks for {{name}}:</h2>
+
+<ul>
+  {{#each tasks}}
+    <li>{{this.task}}</li>
+  {{/each}}
+</ul>
